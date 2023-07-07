@@ -230,6 +230,45 @@
         ]
       }
     },
+    "/api/devices/{dev_eui}/enabled/channels": {
+      "delete": {
+        "summary": "Sets enabled channels per device",
+        "operationId": "SetDeviceChannels",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiSetDeviceChannelsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "dev_eui",
+            "description": "Device EUI (8 bytes).",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "byte"
+          },
+          {
+            "name": "channels",
+            "description": "Channels to be enabled.",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "tags": [
+          "DeviceService"
+        ]
+      }
+    },
     "/api/devices/{dev_eui}/events": {
       "get": {
         "summary": "StreamEventLogs stream the device events (uplink payloads, ACKs, joins, errors).\r\n  * This endpoint is intended for debugging only.\r\n  * This endpoint does not work from a web-browser.",
@@ -900,6 +939,24 @@
             "$ref": "#/definitions/apiDeviceListItem"
           },
           "description": "Devices within this result-set."
+        }
+      }
+    },
+    "apiSetDeviceChannelsResponse": {
+      "type": "object",
+      "properties": {
+        "devEui": {
+          "type": "string",
+          "format": "byte",
+          "description": "Device EUI (8 bytes)."
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "title": "Channels to be enabled"
         }
       }
     },
