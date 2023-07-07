@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package ns;
 
-option go_package = "github.com/brocaar/chirpstack-api/ns";
+option go_package = "github.com/kamicuu/chirpstack-api/ns";
 option java_package = "io.chirpstack.api.ns";
 option java_multiple_files = true;
 option java_outer_classname = "NetworkServerProto";
@@ -396,7 +396,14 @@ message GetDeviceActivationRequest {
     bytes dev_eui = 1;
 }
 
-message SetDeviceChannels {
+message SetDeviceChannelsRequest {
+    // Device EUI (8 bytes).
+    bytes dev_eui = 1;
+    //Channels to be enabled
+    repeated uint32 channels = 2;
+}
+
+message SetDeviceChannelsResponse {
     // Device EUI (8 bytes).
     bytes dev_eui = 1;
     //Channels to be enabled
