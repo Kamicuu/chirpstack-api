@@ -174,6 +174,12 @@ service NetworkServerService {
     //   * These are clear older DevNonce records from device activation records
     //   * These clears all DevNonce records but keeps latest 20 records for maintain device activation status
     rpc ClearDeviceNonces(ClearDeviceNoncesRequest) returns (google.protobuf.Empty) {}
+
+    //  Sets enabled channels per device
+    rpc GetDeviceChannels(GetDeviceChannelsRequest) returns (GetDeviceChannelsResponse) {}
+
+    //  Sets enabled channels per device
+    rpc SetDeviceChannels(SetDeviceChannelsRequest) returns (SetDeviceChannelsResponse) {}
 }
 
 enum RXWindow {
@@ -394,6 +400,18 @@ message DeactivateDeviceRequest {
 message GetDeviceActivationRequest {
     // Device EUI (8 bytes).
     bytes dev_eui = 1;
+}
+
+message GetDeviceChannelsRequest {
+  // Device EUI (8 bytes).
+  bytes dev_eui = 1;
+}
+
+message GetDeviceChannelsResponse {
+  // Device EUI (8 bytes).
+  bytes dev_eui = 1;
+  //Channels to be enabled
+  repeated uint32 channels = 2;
 }
 
 message SetDeviceChannelsRequest {

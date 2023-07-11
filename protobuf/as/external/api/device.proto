@@ -146,12 +146,20 @@ service DeviceService {
         };
     }
 
+    //    Gets enabled channels per device
+    rpc GetDeviceChannels(GetDeviceChannelsRequest) returns (GetDeviceChannelsResponse) {
+        option (google.api.http) = {
+            get: "/api/devices/{dev_eui}/enabled/channels"
+        };
+    }
+
     //    Sets enabled channels per device
     rpc SetDeviceChannels(SetDeviceChannelsRequest) returns (SetDeviceChannelsResponse) {
         option (google.api.http) = {
-            delete: "/api/devices/{dev_eui}/enabled/channels"
+            post: "/api/devices/{dev_eui}/enabled/channels"
         };
     }
+    
 }
 
 message Device {
@@ -503,6 +511,18 @@ message StreamDeviceEventLogsResponse {
 message ClearDeviceNoncesRequest {
     // Device EUI (HEX encoded).
     string dev_eui = 1 [json_name = "devEUI"];
+}
+
+message GetDeviceChannelsRequest {
+    // Device EUI (8 bytes).
+    bytes dev_eui = 1;
+  }
+
+message GetDeviceChannelsResponse {
+    // Device EUI (8 bytes).
+    bytes dev_eui = 1;
+    //Channels to be enabled
+    repeated uint32 channels = 2;
 }
 
 message SetDeviceChannelsRequest {

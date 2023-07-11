@@ -231,7 +231,32 @@
       }
     },
     "/api/devices/{dev_eui}/enabled/channels": {
-      "delete": {
+      "get": {
+        "summary": "Gets enabled channels per device",
+        "operationId": "GetDeviceChannels",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiGetDeviceChannelsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "dev_eui",
+            "description": "Device EUI (8 bytes).",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "byte"
+          }
+        ],
+        "tags": [
+          "DeviceService"
+        ]
+      },
+      "post": {
         "summary": "Sets enabled channels per device",
         "operationId": "SetDeviceChannels",
         "responses": {
@@ -250,18 +275,6 @@
             "required": true,
             "type": "string",
             "format": "byte"
-          },
-          {
-            "name": "channels",
-            "description": "Channels to be enabled.",
-            "in": "query",
-            "required": false,
-            "type": "array",
-            "items": {
-              "type": "integer",
-              "format": "int64"
-            },
-            "collectionFormat": "multi"
           }
         ],
         "tags": [
@@ -865,6 +878,24 @@
         "deviceActivation": {
           "$ref": "#/definitions/apiDeviceActivation",
           "description": "Device-activation object."
+        }
+      }
+    },
+    "apiGetDeviceChannelsResponse": {
+      "type": "object",
+      "properties": {
+        "devEui": {
+          "type": "string",
+          "format": "byte",
+          "description": "Device EUI (8 bytes)."
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "title": "Channels to be enabled"
         }
       }
     },
