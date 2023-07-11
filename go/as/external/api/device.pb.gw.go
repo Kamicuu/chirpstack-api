@@ -965,7 +965,7 @@ func request_DeviceService_GetDeviceChannels_0(ctx context.Context, marshaler ru
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "dev_eui")
 	}
 
-	protoReq.DevEui, err = runtime.Bytes(val)
+	protoReq.DevEui, err = runtime.String(val)
 
 	if err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "dev_eui", err)
@@ -992,7 +992,7 @@ func local_request_DeviceService_GetDeviceChannels_0(ctx context.Context, marsha
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "dev_eui")
 	}
 
-	protoReq.DevEui, err = runtime.Bytes(val)
+	protoReq.DevEui, err = runtime.String(val)
 
 	if err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "dev_eui", err)
@@ -1023,7 +1023,7 @@ func request_DeviceService_SetDeviceChannels_0(ctx context.Context, marshaler ru
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "dev_eui")
 	}
 
-	protoReq.DevEui, err = runtime.Bytes(val)
+	protoReq.DevEui, err = runtime.String(val)
 
 	if err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "dev_eui", err)
@@ -1057,7 +1057,7 @@ func local_request_DeviceService_SetDeviceChannels_0(ctx context.Context, marsha
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "dev_eui")
 	}
 
-	protoReq.DevEui, err = runtime.Bytes(val)
+	protoReq.DevEui, err = runtime.String(val)
 
 	if err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "dev_eui", err)

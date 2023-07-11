@@ -245,11 +245,10 @@
         "parameters": [
           {
             "name": "dev_eui",
-            "description": "Device EUI (8 bytes).",
+            "description": "Device EUI (HEX encoded).",
             "in": "path",
             "required": true,
-            "type": "string",
-            "format": "byte"
+            "type": "string"
           }
         ],
         "tags": [
@@ -270,11 +269,10 @@
         "parameters": [
           {
             "name": "dev_eui",
-            "description": "Device EUI (8 bytes).",
+            "description": "Device EUI (HEX encoded).",
             "in": "path",
             "required": true,
-            "type": "string",
-            "format": "byte"
+            "type": "string"
           }
         ],
         "tags": [
@@ -884,10 +882,9 @@
     "apiGetDeviceChannelsResponse": {
       "type": "object",
       "properties": {
-        "devEui": {
+        "devEUI": {
           "type": "string",
-          "format": "byte",
-          "description": "Device EUI (8 bytes)."
+          "description": "Device EUI (HEX encoded)."
         },
         "channels": {
           "type": "array",
@@ -976,10 +973,9 @@
     "apiSetDeviceChannelsResponse": {
       "type": "object",
       "properties": {
-        "devEui": {
+        "devEUI": {
           "type": "string",
-          "format": "byte",
-          "description": "Device EUI (8 bytes)."
+          "description": "Device EUI (HEX encoded)."
         },
         "channels": {
           "type": "array",
