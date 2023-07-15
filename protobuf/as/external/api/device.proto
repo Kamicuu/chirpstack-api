@@ -522,19 +522,19 @@ message GetDeviceChannelsResponse {
     // Device EUI (HEX encoded).
     string dev_eui = 1 [json_name = "devEUI"];
     //Channels to be enabled
-    repeated uint32 channels = 2;
+    repeated int32 channels = 2;
 }
 
 message SetDeviceChannelsRequest {
     // Device EUI (HEX encoded).
     string dev_eui = 1 [json_name = "devEUI"];
     //Channels to be enabled
-    repeated uint32 channels = 2;
+    repeated int32 channels = 2;
 }
 
 message SetDeviceChannelsResponse {
     // Device EUI (HEX encoded).
     string dev_eui = 1 [json_name = "devEUI"];
     //Channels to be enabled
-    repeated uint32 channels = 2;
+    repeated int32 channels = 2;
 }

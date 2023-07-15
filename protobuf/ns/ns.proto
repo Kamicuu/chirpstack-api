@@ -408,24 +408,24 @@ message GetDeviceChannelsRequest {
 }
 
 message GetDeviceChannelsResponse {
-  // Device EUI (8 bytes).
-  bytes dev_eui = 1;
-  //Channels to be enabled
-  repeated uint32 channels = 2;
+    // Device EUI (8 bytes).
+    bytes dev_eui = 1;
+    //Channels to be enabled
+    repeated int32 channels = 2;
 }
 
 message SetDeviceChannelsRequest {
     // Device EUI (8 bytes).
     bytes dev_eui = 1;
     //Channels to be enabled
-    repeated uint32 channels = 2;
+    repeated int32 channels = 2;
 }
 
 message SetDeviceChannelsResponse {
     // Device EUI (8 bytes).
     bytes dev_eui = 1;
     //Channels to be enabled
-    repeated uint32 channels = 2;
+    repeated int32 channels = 2;
 }
 
 message GetDeviceActivationResponse {

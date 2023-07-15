@@ -890,7 +890,7 @@
           "type": "array",
           "items": {
             "type": "integer",
-            "format": "int64"
+            "format": "int32"
           },
           "title": "Channels to be enabled"
         }
@@ -981,7 +981,7 @@
           "type": "array",
           "items": {
             "type": "integer",
-            "format": "int64"
+            "format": "int32"
           },
           "title": "Channels to be enabled"
         }
