@@ -157,6 +157,7 @@ service DeviceService {
     rpc SetDeviceChannels(SetDeviceChannelsRequest) returns (SetDeviceChannelsResponse) {
         option (google.api.http) = {
             post: "/api/devices/{dev_eui}/enabled/channels"
+            body: "*"
         };
     }
     
@@ -521,7 +522,7 @@ message GetDeviceChannelsRequest {
 message GetDeviceChannelsResponse {
     // Device EUI (HEX encoded).
     string dev_eui = 1 [json_name = "devEUI"];
-    //Channels to be enabled
+    //Indexces of enabled channels
     repeated int32 channels = 2;
 }
 
