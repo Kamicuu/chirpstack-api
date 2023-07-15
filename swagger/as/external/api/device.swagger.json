@@ -273,6 +273,14 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiSetDeviceChannelsRequest"
+            }
           }
         ],
         "tags": [
@@ -892,7 +900,7 @@
             "type": "integer",
             "format": "int32"
           },
-          "title": "Channels to be enabled"
+          "title": "Indexces of enabled channels"
         }
       }
     },
@@ -967,6 +975,23 @@
             "$ref": "#/definitions/apiDeviceListItem"
           },
           "description": "Devices within this result-set."
+        }
+      }
+    },
+    "apiSetDeviceChannelsRequest": {
+      "type": "object",
+      "properties": {
+        "devEUI": {
+          "type": "string",
+          "description": "Device EUI (HEX encoded)."
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": "Channels to be enabled"
         }
       }
     },
