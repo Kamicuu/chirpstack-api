@@ -530,7 +530,7 @@ message SetDeviceChannelsRequest {
     // Device EUI (HEX encoded).
     string dev_eui = 1 [json_name = "devEUI"];
     //Channels to be enabled
-    repeated int32 channels = 2;
+    repeated uint32 channels = 2;
 }
 
 message SetDeviceChannelsResponse {
